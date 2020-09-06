@@ -28,3 +28,17 @@ Ao exibir o relatorio, é calculado quantas compras foram feitas por mês. É an
 
 ### Autenticação
 O Cadastro de Revendedores e o Login não precisam de autenticação, os demais utilizam JWT
+
+### Logs
+Pelo Appsettings é possivel selecionar se deve gravar arquivo com o log e qual o path
+
+### Banco de dados
+Utilizando SqlServer via Entity
+
+Para executar, basta satisfazer as dependencias do NuGet, alterar a connection strign no appsettings.json ( o default é "Server=(localdb)\mssqllocaldb;Database=Cashback;Trusted_Connection=True;")
+
+AO executar, as migrations ja vão criar a base e as tabelas
+
+usuário e senha via _seed_ para login: 
++ 15350946056@teste.com.br
++ 15350946056
