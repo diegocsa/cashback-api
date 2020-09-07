@@ -45,11 +45,11 @@ namespace Cashback.Service
             if (!Validators.EmailIsValid(model.Email))
                 throw new CashbackServiceException(Messages.EmailInvalid);
 
-            if (_resellerRepository.Retrieve(x => x.CPF == model.CPF.ApplyCPFFormat()).Any())
-                throw new CashbackServiceException(Messages.ResellerCPFInUse);
-
             if (!Validators.CPFIsValid(model.CPF))
                 throw new CashbackServiceException(Messages.CPFInvalid);
+
+            if (_resellerRepository.Retrieve(x => x.CPF == model.CPF.ApplyCPFFormat()).Any())
+                throw new CashbackServiceException(Messages.ResellerCPFInUse);
 
             if (string.IsNullOrEmpty(model.Name))
                 throw new CashbackServiceException(Messages.NameIsObrigatory);

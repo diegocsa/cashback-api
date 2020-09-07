@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nelibur.ObjectMapper;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cashback.API.Controllers.v1
@@ -54,7 +55,9 @@ namespace Cashback.API.Controllers.v1
             {
                 _logger.LogInformation("Get Purchases");
                 var items = _purchaseOrderService.Get(cpf, start, end);
-                return StatusCode(StatusCodes.Status201Created, items);
+                if (items.First() != null)
+                    return StatusCode(StatusCodes.Status200OK, items.ToList());
+                return StatusCode(StatusCodes.Status204NoContent);
             }
             catch (CashbackServiceException ex)
             {

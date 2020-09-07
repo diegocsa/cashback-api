@@ -26,6 +26,9 @@ Ao exibir o relatorio, é calculado quantas compras foram feitas por mês. É an
 ## Testes
 ![Testes Unitários](testes.png)
 
+## Testes de integração
+O teste de integração cria um banco de dados e não exclui ele após o termino dos testes. Está definido no appsettings.IntegrationTest.json ( o default é "Server=(localdb)\mssqllocaldb;Database=Cashback_INTEGRATIONTEST;Trusted_Connection=True;")
+
 ### Autenticação
 O Cadastro de Revendedores e o Login não precisam de autenticação, os demais utilizam JWT
 
